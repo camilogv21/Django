@@ -1,0 +1,24 @@
+
+{% extends 'territorium/base.html' %}
+
+{% block body %}
+    <p>Bienvenido a territorio</p>
+
+    {% if request.session.logueo %}
+        session OK <br>
+        Biemvenido <strong>{{ request.session.logueo.1 }}</strong> <br>
+
+        <strong>{{ request.session.logueo.2 }}</strong> <br>
+
+        su rol es: <strong>{{ request.session.logueo.4 }}</strong> <br>
+
+        <a href="{% url 'territorium:login_cerrar' %}" class="btn btn-primary" > cerrar</a>
+
+
+
+
+    {% else %}
+        Aun no has iniciado session
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+
+{% extends 'territorium/base.html' %}
+
+{% block body %}
+
+<h1>MODIFICAR USUARIO <strong> -_- {{ datos.nombre }} -_-</strong></h1>
+
+<form style="text-align:center;" action="{% url 'territorium:actualizar_usuario' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="hidden" name="id" value="{{datos.id}}" >
+
+    <label for="">Nombre</label><br />
+    <input type="text" class="form-control" name="nombre" style="width:70%; margin-left: auto; margin-right:auto;" value="{{ datos.nombre }}"><br/>
+
+    <label for="">Apellido</label><br />
+    <input type="text" class="form-control" name="apellido" style="width:70%; margin-left: auto; margin-right:auto;"value="{{ datos.apellido }}"><br/>
+
+    <label for="">Correo</label><br />
+    <input type="email" class="form-control" name="correo" style="width:70%; margin-left: auto; margin-right:auto;" value="{{ datos.correo }}" ><br/>
+
+    <label for="">Usuario</label><br />
+    <input type="text" class="form-control" name="usuario" style="width:70%; margin-left: auto; margin-right:auto;" value="{{ datos.usuario }}" ><br/>
+
+    <label for="">Clave</label><br />
+    <input type="password" class="form-control" name="clave" style="width:70%; margin-left: auto; margin-right:auto;"><br/>
+
+    <label for="">Rol:</label>
+    <select class="form-control" name="rol" style="width:70%; margin-left: auto; margin-right:auto;" value="{{ datos.rol }}">
+        <option value="R">Administrador</option>
+        <option value="I">Instructor</option>
+        <option value="A">Aprendiz</option>
+    </select><br/>
+
+    <label for="">Foto</label><br />
+    <input type="file" class="form-control" name="foto" style="width:70%; margin-left: auto; margin-right:auto;"><br/>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{% endblock  %}

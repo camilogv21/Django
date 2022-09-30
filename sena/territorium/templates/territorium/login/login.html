@@ -1,0 +1,15 @@
+{% extends 'territorium/base2.html' %}
+{% block body %}
+    <h2>Login</h2>
+    <form class="form-control container" action="{% url 'territorium:login' %}" method="post">
+        {% csrf_token %}
+        <label for="">Usuario</label><br/>
+        <input type="text" class="form-control" name="usuario"/><br/>
+
+        <label for="">Contrasena</label><br/>
+        <input type="password" class="form-control" name="clave"><br/><br/>
+
+        <button type="submit"  class="btn btn-primary" >ingresar</button>
+    </form>
+{% endblock %}
+    
