@@ -301,7 +301,7 @@ def ActualizarUsuario(request):
             a.usuario = request.POST["usuario"]
             a.clave = request.POST["clave"]
             a.rol = request.POST["rol"]
-            
+
             a.save()
             messages.success(request,"¡Usuario Actualizado correctamente!")
             return redirect('territorium:usuario')
